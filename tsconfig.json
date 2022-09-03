@@ -9,7 +9,9 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "outDir": "./cache"
+    "baseUrl": "./",
+    "outDir": "./cache",
+    "typeRoots": ["./@types", "./node_modules/@types"]
   },
   "exclude": ["node_modules", "cache", "dist", "reports"],
   "include": ["src/**/*.ts"]

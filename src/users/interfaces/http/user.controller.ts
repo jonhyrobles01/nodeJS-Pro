@@ -1,13 +1,14 @@
 import { Request, Response } from "express";
+import { UsersFactory } from "../../domain/models/users.factory";
 import { UsersAplication } from "../../aplication/users.aplication";
 
 export class UserController {
   constructor(private usersAplication: UsersAplication) {
-    this.list = this.list.bind(this);
     this.add = this.add.bind(this);
+    this.list = this.list.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
-    this.findById = this.findById.bind(this);
+    this.findOne = this.findOne.bind(this);
   }
 
   async list(req: Request, res: Response) {
@@ -17,7 +18,8 @@ export class UserController {
   }
 
   async add(req: Request, res: Response) {
-    const user = await this.usersAplication.add(req.body);
+    const userFactory = new UsersFactory().create(req.body);
+    const user = await this.usersAplication.add(userFactory);
 
     res.json(user);
   }
@@ -29,13 +31,13 @@ export class UserController {
   }
 
   async delete(req: Request, res: Response) {
-    const user = await this.usersAplication.delete(req.params.id);
+    const user = await this.usersAplication.delete(+req.params.id);
 
     res.json(user);
   }
 
-  async findById(req: Request, res: Response) {
-    const user = await this.usersAplication.findById(req.params.id);
+  async findOne(req: Request, res: Response) {
+    const user = await this.usersAplication.findOne(+req.params.id);
 
     res.json(user);
   }

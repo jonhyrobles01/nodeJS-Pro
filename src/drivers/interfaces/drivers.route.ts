@@ -1,11 +1,16 @@
-import express, { Request, Response } from "express";
+import { DriverController } from "./driver.controller";
+import { BaseRouter } from "../../shared/interfaces/base-router";
+import { DriversAplication } from "../aplication/drivers.aplication";
+import { DriversInfrastructure } from "../infrastructure/driver.infrastructure";
 
-const routerDrivers = express.Router();
-const uuid = "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed";
+const driverInfrastructure = new DriversInfrastructure();
+const driverAplication = new DriversAplication(driverInfrastructure);
+const driverController = new DriverController(driverAplication);
 
-routerDrivers.get("/", (req: Request, res: Response) => {
-  res.send("drivers");
-});
+export default class extends BaseRouter {
+  constructor() {
+    super(driverController);
+  }
 
-export default routerDrivers;
-export { uuid };
+  mountRoutes() {}
+}

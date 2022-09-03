@@ -1,6 +1,5 @@
-import { MedicEntity } from "../entities/medic.entity";
+import { MedicModel } from "../models/medic.model";
 import { BaseRepository } from "../../../shared/domain/repositories/base-repository";
-
-export interface MedicRepository extends BaseRepository<MedicEntity, number> {
-  reportByMedic(id: number): Promise<MedicEntity>;
+export interface MedicRepository extends BaseRepository<MedicModel> {
+  reportByMedic(id: number): Promise<MedicModel>;
 }

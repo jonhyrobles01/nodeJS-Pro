@@ -1,7 +1,13 @@
-import { UserEntity } from "../domain/entities/user.entity";
+import { UserModel } from "../domain/models/user.model";
+import { UserEntity } from "../domain/models/user.entity";
 import { UsersRepository } from "../domain/repositories/users.repository";
 import { BaseInfrastructure } from "../../shared/infrastructure/base-infrastructure";
 
 export class UsersInfrastructure
-  extends BaseInfrastructure<UserEntity, string>
-  implements UsersRepository {}
+  extends BaseInfrastructure<UserModel>
+  implements UsersRepository
+{
+  constructor() {
+    super(UserEntity);
+  }
+}

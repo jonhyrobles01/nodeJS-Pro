@@ -1,30 +1,15 @@
-import { DriversEntity } from "../domain/entities/driver.entity";
+import { DriverDto } from "./dtos/list.dto";
+import { DriversModel } from "../domain/models/driver.model";
+import Result from "../../shared/aplication/interfaces/result.interface";
+import { BaseAplication } from "../../shared/aplication/base-aplication";
 import { DriversRepository } from "../domain/repositories/drivers.repository";
 
-export class DriversAplication {
-  constructor(private driversRepository: DriversRepository) {}
-
-  async add(driver: DriversEntity) {
-    return await this.driversRepository.insert(driver);
+export class DriversAplication extends BaseAplication<DriversModel> {
+  constructor(driversRepository: DriversRepository) {
+    super(driversRepository, new DriverDto());
   }
 
-  async update(driver: DriversEntity): Promise<DriversEntity> {
-    return await this.driversRepository.update(driver);
-  }
-
-  async delete(id: number): Promise<boolean> {
-    return await this.driversRepository.delete(id);
-  }
-
-  async findById(id: number): Promise<DriversEntity> {
-    return await this.driversRepository.findById(id);
-  }
-
-  async findAll(): Promise<DriversEntity[]> {
-    return await this.driversRepository.findAll();
-  }
-
-  async reportByDriver(id: number): Promise<DriversEntity> {
-    return await this.driversRepository.reportByDriver(id);
+  async reportByDriver(id: number): Promise<Result<DriversModel>> {
+    return await this.findOne(id);
   }
 }

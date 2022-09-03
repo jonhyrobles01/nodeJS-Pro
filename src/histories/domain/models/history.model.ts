@@ -1,4 +1,4 @@
-export class HistoryEntity {
+export class HistoryModel {
   constructor(
     public id: number,
     public namePatient: string,
