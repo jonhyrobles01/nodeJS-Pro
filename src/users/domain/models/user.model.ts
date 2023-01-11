@@ -1,4 +1,4 @@
-import { RefreshTokenVo } from "../value-objects/refresh-token.vo";
+import { RefreshTokenVo } from "@users/domain/value-objects";
 
 export class UserModel {
   constructor(

@@ -1,6 +1,6 @@
-import { BaseRepository } from "../domain/repositories/base-repository";
-import Result from "./interfaces/result.interface";
-import { DTOAbstract } from "./dtos/abstract.dto";
+import { DTOAbstract } from "@shared/aplication/dtos";
+import { Result } from "@shared/aplication/interfaces";
+import { BaseRepository } from "@shared/domain/repositories";
 
 export class BaseAplication<T> {
   constructor(
@@ -21,7 +21,9 @@ export class BaseAplication<T> {
   }
 
   async findOne(id: number): Promise<Result<T>> {
-    return await this.repository.findOne({ id });
+    const result = await this.repository.findOne({ id });
+
+    return !this.dto ? result : this.dto.mapping(result);
   }
 
   async findAll(

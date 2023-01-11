@@ -1,5 +1,5 @@
-import { UserModel } from "./user.model";
-import { RefreshTokenVo } from "../value-objects/refresh-token.vo";
+import { UserModel } from "@users/domain/models";
+import { RefreshTokenVo } from "@users/domain/value-objects";
 
 export interface IUser {
   id: number;

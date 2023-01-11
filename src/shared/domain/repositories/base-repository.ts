@@ -1,4 +1,4 @@
-import Result from "../../aplication/interfaces/result.interface";
+import { Result } from "@shared/aplication/interfaces";
 export interface BaseRepository<T> {
   insert(entity: T): Promise<Result<T>>;
   update(

@@ -1,7 +1,8 @@
+import { DriversRouter } from "@drivers/interfaces";
+import { UsersRouter } from "@users/interfaces/http";
+
 import { v4 as uuidV4 } from "uuid";
-import express, { Request, Response } from "express";
-import usersRoutes from "./users/interfaces/http/users.route";
-import driversRoutes from "./drivers/interfaces/drivers.route";
+import express, { NextFunction, Request, Response } from "express";
 
 class App {
   expressApp: express.Application;
@@ -16,7 +17,7 @@ class App {
   mountMiddlewares(): void {
     this.expressApp.use(express.json());
     this.expressApp.use(express.urlencoded({ extended: true }));
-    this.expressApp.use((req, res, next) => {
+    this.expressApp.use((req: Request, res: Response, next: NextFunction) => {
       req.traceId = uuidV4();
 
       next();
@@ -24,8 +25,8 @@ class App {
   }
 
   mountRoutes(): void {
-    this.expressApp.use("/users", new usersRoutes().expressRouter);
-    this.expressApp.use("/drivers", new driversRoutes().expressRouter);
+    this.expressApp.use("/users", new UsersRouter().expressRouter);
+    this.expressApp.use("/drivers", new DriversRouter().expressRouter);
   }
 
   mountHealthCheck(): void {

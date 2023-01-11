@@ -1,6 +1,6 @@
+import { BaseAplication } from "@shared/aplication";
+import { Result } from "@shared/aplication/interfaces";
 import { HistoryModel } from "../domain/models/history.model";
-import { BaseAplication } from "../../shared/aplication/base-aplication";
-import Result from "../../shared/aplication/interfaces/result.interface";
 import { HistoryRepository } from "../domain/repositories/history.repository";
 
 export class HistoryAplication extends BaseAplication<HistoryModel> {

@@ -1,13 +1,13 @@
-import { DriverController } from "./driver.controller";
-import { BaseRouter } from "../../shared/interfaces/base-router";
-import { DriversAplication } from "../aplication/drivers.aplication";
-import { DriversInfrastructure } from "../infrastructure/driver.infrastructure";
+import { BaseRouter } from "@shared/interfaces";
+import { DriversAplication } from "@drivers/aplication";
+import { DriversInfrastructure } from "@drivers/infrastructure";
+import { DriverController } from "@drivers/interfaces/driver.controller";
 
 const driverInfrastructure = new DriversInfrastructure();
 const driverAplication = new DriversAplication(driverInfrastructure);
 const driverController = new DriverController(driverAplication);
 
-export default class extends BaseRouter {
+export class DriversRouter extends BaseRouter {
   constructor() {
     super(driverController);
   }

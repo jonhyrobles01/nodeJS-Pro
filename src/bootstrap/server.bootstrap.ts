@@ -1,8 +1,9 @@
-import http from "http";
-import app from "../app";
-import Bootstrap from "./bootstrap";
+import app from "@/app";
+import { Bootstrap } from "@/bootstrap";
 
-export default class ServerBootstrap extends Bootstrap {
+import http from "http";
+
+export class ServerBootstrap extends Bootstrap {
   initialize(): Promise<boolean | Error> {
     return new Promise((resolve, reject) => {
       const port = 8000;

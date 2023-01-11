@@ -9,9 +9,16 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./cache",
-    "typeRoots": ["./@types", "./node_modules/@types"]
+    "rootDir": ".",
+    "typeRoots": ["./@types", "./node_modules/@types"],
+    "paths": {
+      "@/*": ["*"],
+      "@users/*": ["./users/*"],
+      "@shared/*": ["./shared/*"],
+      "@drivers/*": ["./drivers/*"]
+    }
   },
   "exclude": ["node_modules", "cache", "dist", "reports"],
   "include": ["src/**/*.ts"]

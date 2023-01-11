@@ -1,8 +1,8 @@
-import { DriverDto } from "./dtos/list.dto";
-import { DriversModel } from "../domain/models/driver.model";
-import Result from "../../shared/aplication/interfaces/result.interface";
-import { BaseAplication } from "../../shared/aplication/base-aplication";
-import { DriversRepository } from "../domain/repositories/drivers.repository";
+import { BaseAplication } from "@shared/aplication";
+import { DriverDto } from "@drivers/aplication/dtos";
+import { DriversModel } from "@drivers/domain/models";
+import { Result } from "@shared/aplication/interfaces";
+import { DriversRepository } from "@drivers/domain/repositories";
 
 export class DriversAplication extends BaseAplication<DriversModel> {
   constructor(driversRepository: DriversRepository) {

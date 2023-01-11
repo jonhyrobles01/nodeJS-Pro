@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-export default abstract class Bootstrap {
+export abstract class Bootstrap {
   abstract initialize(): Promise<boolean | DataSource | Error>;
 }
 

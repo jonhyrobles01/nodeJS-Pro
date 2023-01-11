@@ -1,5 +1,5 @@
-import ServerBootstrap from "./bootstrap/server.bootstrap";
-import DatabaseBootstrap from "./bootstrap/database.bootstrap";
+import "./config/module-alias";
+import { ServerBootstrap, DatabaseBootstrap } from "@/bootstrap";
 
 const serverBootstrap = new ServerBootstrap();
 const databaseBootstrap = new DatabaseBootstrap();

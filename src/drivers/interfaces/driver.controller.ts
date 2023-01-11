@@ -1,6 +1,7 @@
+import { DriverFactory } from "@drivers/domain/models";
+import { DriversAplication } from "@drivers/aplication";
+
 import { Request, Response } from "express";
-import { DriverFactory } from "../domain/models/driver.factory";
-import { DriversAplication } from "../aplication/drivers.aplication";
 
 export class DriverController {
   constructor(private driverAplication: DriversAplication) {

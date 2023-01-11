@@ -1,6 +1,7 @@
+import { UsersAplication } from "@users/aplication";
+import { UsersFactory } from "@users/domain/models";
+
 import { Request, Response } from "express";
-import { UsersFactory } from "../../domain/models/users.factory";
-import { UsersAplication } from "../../aplication/users.aplication";
 
 export class UserController {
   constructor(private usersAplication: UsersAplication) {

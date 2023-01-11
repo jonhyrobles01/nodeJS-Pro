@@ -1,13 +1,13 @@
-import { UserController } from "./user.controller";
-import { UsersAplication } from "../../aplication/users.aplication";
-import { BaseRouter } from "../../../shared/interfaces/base-router";
-import { UsersInfrastructure } from "../../infrastructure/users.infrastructure";
+import { BaseRouter } from "@shared/interfaces";
+import { UsersAplication } from "@users/aplication";
+import { UsersInfrastructure } from "@users/infrastructure";
+import { UserController } from "@users/interfaces/http/user.controller";
 
 const usersInfrastructure = new UsersInfrastructure();
 const userAplication = new UsersAplication(usersInfrastructure);
 const userController = new UserController(userAplication);
 
-export default class extends BaseRouter {
+export class UsersRouter extends BaseRouter {
   constructor() {
     super(userController);
   }

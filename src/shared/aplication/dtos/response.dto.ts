@@ -1,4 +1,4 @@
-import Result from "../interfaces/result.interface";
+import { Result } from "@shared/aplication/interfaces";
 
 export function ResponseDto<T>(
   traceId: string,

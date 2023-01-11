@@ -1,6 +1,6 @@
-import { UserModel } from "../domain/models/user.model";
-import { BaseAplication } from "../../shared/aplication/base-aplication";
-import { UsersRepository } from "../domain/repositories/users.repository";
+import { UserModel } from "@users/domain/models";
+import { BaseAplication } from "@shared/aplication";
+import { UsersRepository } from "@users/domain/repositories";
 
 export class UsersAplication extends BaseAplication<UserModel> {
   constructor(usersRepository: UsersRepository) {

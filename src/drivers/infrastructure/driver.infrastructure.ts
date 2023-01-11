@@ -1,7 +1,6 @@
-import { DriversModel } from "../domain/models/driver.model";
-import { DriversEntity } from "../domain/models/driver.entity";
-import { DriversRepository } from "../domain/repositories/drivers.repository";
-import { BaseInfrastructure } from "../../shared/infrastructure/base-infrastructure";
+import { BaseInfrastructure } from "@shared/infrastructure";
+import { DriversRepository } from "@drivers/domain/repositories";
+import { DriversModel, DriversEntity } from "@drivers/domain/models";
 
 export class DriversInfrastructure
   extends BaseInfrastructure<DriversModel>

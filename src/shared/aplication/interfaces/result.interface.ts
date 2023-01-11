@@ -1,4 +1,4 @@
-export default interface Result<T> {
+export interface Result<T> {
   traceId: string;
   payload: {
     data: Partial<T> | Partial<T>[];

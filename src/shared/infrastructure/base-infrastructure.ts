@@ -1,10 +1,9 @@
-import * as _ from "lodash";
-import { Trace } from "../helpers/trace.helper";
-import { ObjectType, Repository } from "typeorm";
-import { ResponseDto } from "../aplication/dtos/response.dto";
-import Result from "../aplication/interfaces/result.interface";
-import DatabaseBootstrap from "../../bootstrap/database.bootstrap";
+import { Trace } from "@shared/helpers";
+import { DatabaseBootstrap } from "@/bootstrap";
+import { Result } from "@shared/aplication/interfaces";
+import { ResponseDto } from "@shared/aplication/dtos";
 
+import { ObjectType, Repository } from "typeorm";
 export abstract class BaseInfrastructure<T> {
   constructor(private entity: ObjectType<T>) {}
 
